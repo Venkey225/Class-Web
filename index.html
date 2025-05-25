@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Class Connect - A student portal by Nobita featuring materials, assignments, gallery, and announcements.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <title>-_-Class Connect By Nobi-_-</title>
 
   <!-- Tailwind CSS -->
@@ -11,7 +13,6 @@
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-
   <!-- Animate.css -->
   <link
     rel="stylesheet"
@@ -19,10 +20,15 @@
   />
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .fade-up {
       animation: fade-up 1s ease-out both;
     }
@@ -104,10 +110,10 @@
       📢 Announcements
     </h3>
     <ul class="space-y-2 list-disc list-inside text-gray-700">
-      <li data-aos="fade-right" data-aos-delay="100">🎓 Sem Lab start in 28th</li>
-      <li data-aos="fade-right" data-aos-delay="200">📝 Record Sign end in Sem Lab before</li>
-      <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare Lab Exam any one questions To write Well</li>
-      <li data-aos="fade-right" data-aos-delay="300">Anybody Come on 26th Monday on college Assembel Class Room At 10-O Clock</li>
+      <li data-aos="fade-right" data-aos-delay="100">🎓 Semester Lab starts on the 28th.</li>
+      <li data-aos="fade-right" data-aos-delay="200">📝 Record signing must be completed before the Semester Lab.</li>
+      <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare at least one Lab Exam question thoroughly for writing.</li>
+      <li data-aos="fade-right" data-aos-delay="400">📅 All students should come to the College Assembly Classroom on Monday, 26th at 10:00 AM.</li>
     </ul>
   </section>
 
@@ -179,7 +185,7 @@
         <p class="text-center text-sm mt-2 text-gray-700">Memories</p>
       </div>
       <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition hover:animate__pulse" data-aos="flip-left" data-aos-delay="300">
-        <img src="./1747486233505.jpg"alt="Farewell" class="w-full h-30 object-cover" />
+        <img src="./1747486233505.jpg" alt="Farewell" class="w-full h-48 object-cover" />
         <p class="text-center text-sm mt-2 text-gray-700">Farewell 2025</p>
       </div>
     </div>
@@ -214,6 +220,8 @@
     const menu = document.getElementById('menu');
 
     btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('hidden');
     });
   </script>
@@ -222,7 +230,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      once: true, // animation only once on scroll
+      once: true,
       easing: 'ease-out-cubic',
       duration: 800,
     });
