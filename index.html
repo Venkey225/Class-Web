@@ -101,22 +101,64 @@
 
   <!-- Announcements -->
   <section
-    id="announcements"
-    class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl"
-    data-aos="fade-up"
-    data-aos-duration="1000"
-  >
-    <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInLeft">
-      📢 Announcements
-    </h3>
-    <ul class="space-y-2 list-disc list-inside text-gray-700">
-      <li data-aos="fade-right" data-aos-delay="100">🎓 Semester Lab starts on the 28th.</li>
-      <li data-aos="fade-right" data-aos-delay="200">📝 Record signing must be completed before the Semester Lab.</li>
-      <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare at least one Lab Exam question thoroughly for writing.</li>
-      <li data-aos="fade-right" data-aos-delay="400">📅 All students should come to the College Assembly Classroom on Monday, 26th at 10:00 AM.</li>
-    </ul>
-  </section>
+  id="announcements"
+  class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInLeft">
+    📢 Announcements
+  </h3>
+  <ul class="space-y-2 list-disc list-inside text-gray-700">
+    <li data-aos="fade-right" data-aos-delay="100">🎓 Sem Lab starts on 28th</li>
+    <li data-aos="fade-right" data-aos-delay="200">📝 Record Sign-off ends before Sem Lab</li>
+    <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare Lab Exam answers well</li>
+    <li data-aos="fade-right" data-aos-delay="400">📅 Come to the Assembly on 26th Monday, 10:00 AM</li>
+  </ul>
 
+  <!-- Voting Section -->
+  <div class="mt-10 p-6 bg-purple-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
+    <h4 class="text-xl font-semibold text-purple-800 mb-4">📊 Will you attend the Assembly on Monday?</h4>
+    <form id="pollForm" class="space-y-3">
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="vote" value="yes" class="text-purple-600" />
+        <span>Yes, I’ll be there!</span>
+      </label>
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="vote" value="no" class="text-purple-600" />
+        <span>No, I can’t attend.</span>
+      </label>
+      <button type="submit" class="mt-2 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
+        Submit Vote
+      </button>
+    </form>
+    <div id="results" class="mt-6 hidden">
+  <p class="text-sm text-gray-700 mb-2">📈 Poll Results:</p>
+
+  <!-- Yes Votes -->
+  <div class="mb-2">
+    <div class="flex justify-between text-sm">
+      <span>✅ Yes</span>
+      <span id="yesCount">0 votes</span>
+    </div>
+    <div class="w-full bg-gray-200 h-5 rounded">
+      <div id="yesBar" class="bg-green-500 h-5 text-xs text-white text-center transition-all duration-500" style="width: 0%">0%</div>
+    </div>
+  </div>
+
+  <!-- No Votes -->
+  <div>
+    <div class="flex justify-between text-sm">
+      <span>❌ No</span>
+      <span id="noCount">0 votes</span>
+    </div>
+    <div class="w-full bg-gray-200 h-5 rounded">
+      <div id="noBar" class="bg-red-500 h-5 text-xs text-white text-center transition-all duration-500" style="width: 0%">0%</div>
+    </div>
+  </div>
+</div>
+
+</section>
   <!-- Course Materials -->
   <section
     id="materials"
@@ -235,6 +277,34 @@
       duration: 800,
     });
   </script>
+  <script>
+  const pollForm = document.getElementById('pollForm');
+  const results = document.getElementById('results');
+  const yesBar = document.getElementById('yesBar');
+  const noBar = document.getElementById('noBar');
+  const yesCount = document.getElementById('yesCount');
+  const noCount = document.getElementById('noCount');
 
-</body>
-</html>
+  let votes = { yes: 0, no: 0 };
+
+  pollForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selected = pollForm.vote.value;
+    if (selected) {
+      votes[selected]++;
+      const total = votes.yes + votes.no;
+      const yesPercent = Math.round((votes.yes / total) * 100);
+      const noPercent = 100 - yesPercent;
+
+      yesBar.style.width = `${yesPercent}%`;
+      noBar.style.width = `${noPercent}%`;
+      yesBar.textContent = `${yesPercent}%`;
+      noBar.textContent = `${noPercent}%`;
+
+      yesCount.textContent = `${votes.yes} vote${votes.yes !== 1 ? 's' : ''}`;
+      noCount.textContent = `${votes.no} vote${votes.no !== 1 ? 's' : ''}`;
+
+      results.classList.remove('hidden');
+    }
+  });
+</script>
