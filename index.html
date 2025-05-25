@@ -101,40 +101,64 @@
 
   <!-- Announcements -->
   <section
-    id="announcements"
-    class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl"
-    data-aos="fade-up"
-    data-aos-duration="1000"
-  >
-    <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInLeft">
-      📢 Announcements
-    </h3>
-    <ul class="space-y-2 list-disc list-inside text-gray-700">
-      <li data-aos="fade-right" data-aos-delay="100">🎓 Sem Lab starts on 28th</li>
-      <li data-aos="fade-right" data-aos-delay="200">📝 Record Sign-off ends before Sem Lab</li>
-      <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare Lab Exam answers well</li>
-      <li data-aos="fade-right" data-aos-delay="400">📅 Come to the Assembly on 26th Monday, 10:00 AM</li>
-    </ul>
+  id="announcements"
+  class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInLeft">
+    📢 Announcements
+  </h3>
+  <ul class="space-y-2 list-disc list-inside text-gray-700">
+    <li data-aos="fade-right" data-aos-delay="100">🎓 Sem Lab starts on 28th</li>
+    <li data-aos="fade-right" data-aos-delay="200">📝 Record Sign-off ends before Sem Lab</li>
+    <li data-aos="fade-right" data-aos-delay="300">🎤 Prepare Lab Exam answers well</li>
+    <li data-aos="fade-right" data-aos-delay="400">📅 Come to the Assembly on 26th Monday, 10:00 AM</li>
+  </ul>
 
-    <!-- Voting Section -->
-    <div id="vote-section" class="mt-10 p-6 bg-purple-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
-      <h4 class="text-xl font-semibold text-purple-800 mb-4">📊 Will you attend the Assembly on Monday?</h4>
-      <div class="flex space-x-4">
-        <button onclick="submitVote('yes')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">👍 Yes</button>
-        <button onclick="submitVote('no')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">👎 No</button>
-      </div>
-      <div id="results" class="mt-6">
-        <p class="text-sm text-gray-700 mb-2">📈 Live Poll Results:</p>
-        <div class="w-full bg-gray-200 h-5 rounded mb-2">
-          <div id="yesBar" class="bg-green-500 h-5 text-xs text-white text-center" style="width: 0%">0%</div>
-        </div>
-        <div class="w-full bg-gray-200 h-5 rounded">
-          <div id="noBar" class="bg-red-500 h-5 text-xs text-white text-center" style="width: 0%">0%</div>
-        </div>
-      </div>
+  <!-- Voting Section -->
+  <div class="mt-10 p-6 bg-purple-50 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
+    <h4 class="text-xl font-semibold text-purple-800 mb-4">📊 Will you attend the Assembly on Monday?</h4>
+    <form id="pollForm" class="space-y-3">
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="vote" value="yes" class="text-purple-600" />
+        <span>Yes, I’ll be there!</span>
+      </label>
+      <label class="flex items-center space-x-2">
+        <input type="radio" name="vote" value="no" class="text-purple-600" />
+        <span>No, I can’t attend.</span>
+      </label>
+      <button type="submit" class="mt-2 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
+        Submit Vote
+      </button>
+    </form>
+    <div id="results" class="mt-6 hidden">
+  <p class="text-sm text-gray-700 mb-2">📈 Poll Results:</p>
+
+  <!-- Yes Votes -->
+  <div class="mb-2">
+    <div class="flex justify-between text-sm">
+      <span>✅ Yes</span>
+      <span id="yesCount">0 votes</span>
     </div>
-  </section>
+    <div class="w-full bg-gray-200 h-5 rounded">
+      <div id="yesBar" class="bg-green-500 h-5 text-xs text-white text-center transition-all duration-500" style="width: 0%">0%</div>
+    </div>
+  </div>
 
+  <!-- No Votes -->
+  <div>
+    <div class="flex justify-between text-sm">
+      <span>❌ No</span>
+      <span id="noCount">0 votes</span>
+    </div>
+    <div class="w-full bg-gray-200 h-5 rounded">
+      <div id="noBar" class="bg-red-500 h-5 text-xs text-white text-center transition-all duration-500" style="width: 0%">0%</div>
+    </div>
+  </div>
+</div>
+
+</section>
   <!-- Course Materials -->
   <section
     id="materials"
@@ -177,127 +201,168 @@
         <a href="#" class="text-purple-600 underline hover:text-purple-800">Download</a>
       </li>
       <li class="flex justify-between items-center bg-purple-50 p-4 rounded-lg shadow hover:shadow-md transition transform hover:scale-105 hover:animate__pulse" data-aos="fade-left" data-aos-delay="200">
-        <span class="text-gray-700">LIC Assignment-3</span>
+        <span class="text-gray-700">EMF Assignment-3</span>
+        <a href="#" class="text-purple-600 underline hover:text-purple-800">Download</a>
+      </li>
+      <li class="flex justify-between items-center bg-purple-50 p-4 rounded-lg shadow hover:shadow-md transition transform hover:scale-105 hover:animate__pulse" data-aos="fade-left" data-aos-delay="300">
+        <span class="text-gray-700">CS Assignment-3</span>
         <a href="#" class="text-purple-600 underline hover:text-purple-800">Download</a>
       </li>
     </ul>
   </section>
 
-  <!-- Gallery / Albums -->
+  <!-- Albums/Gallery -->
   <section
     id="albums"
     class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl"
     data-aos="fade-up"
     data-aos-duration="1000"
   >
-    <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInUp">
-      📸 Gallery
+    <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInDown">
+      📸 Album
     </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition hover:animate__pulse" data-aos="flip-left" data-aos-delay="100">
-        <img src="./IMG-20250506-WA0007.jpg" alt="Gang pic" class="w-full h-48 object-cover" />
-        <p class="text-center text-sm mt-2 text-gray-700">Gang pic</p>
-      </div>
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition hover:animate__pulse" data-aos="flip-left" data-aos-delay="200">
-        <img src="./1747486233564.jpg" alt="Project" class="w-full h-48 object-cover" />
-        <p class="text-center text-sm mt-2 text-gray-700">Memories</p>
-      </div>
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-xl transform hover:scale-105 transition hover:animate__pulse" data-aos="flip-left" data-aos-delay="300">
-        <img src="./1747486233505.jpg" alt="Farewell" class="w-full h-48 object-cover" />
-        <p class="text-center text-sm mt-2 text-gray-700">Farewell</p>
-      </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <img
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+        alt="Album 1"
+        class="rounded-lg shadow hover:shadow-lg transition transform hover:scale-110 hover:animate__pulse"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80"
+        alt="Album 2"
+        class="rounded-lg shadow hover:shadow-lg transition transform hover:scale-110 hover:animate__pulse"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+        alt="Album 3"
+        class="rounded-lg shadow hover:shadow-lg transition transform hover:scale-110 hover:animate__pulse"
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      />
     </div>
   </section>
 
   <!-- Contact -->
   <section
     id="contact"
-    class="max-w-5xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl mb-20"
+    class="max-w-5xl mx-auto p-6 mt-10 mb-10 bg-white shadow-lg rounded-xl"
     data-aos="fade-up"
     data-aos-duration="1000"
   >
     <h3 class="text-2xl font-bold text-purple-700 mb-4 animate__animated animate__fadeInUp">
-      📬 Contact
+      📞 Contact
     </h3>
     <p class="text-gray-700">
-      For queries, contact Nobita at <a href="mailto:nobita@example.com" class="text-purple-600 underline">nobita@example.com</a>.
+      Nobita has made this for you! For any queries or support, email
+      <a href="mailto:nobita@example.com" class="text-purple-600 underline hover:text-purple-800">nobita@example.com</a>.
     </p>
   </section>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase SDKs & Voting Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      updateDoc,
+      setDoc,
+      onSnapshot,
+      increment
+    } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
-  <script>
-    // Your Firebase config here - Replace with your own from Firebase Console
     const firebaseConfig = {
-      apiKey: "AIzaSyCRfOItrwPmNOLVGeITxXmA9HuXommeqv4",
-      authDomain: "classconnect-66fc3.firebaseapp.com",
-      projectId: "classconnect-66fc3",
-      storageBucket: "classconnect-66fc3.firebasestorage.app",
-      messagingSenderId: "188344432559",
-      appId:"1:188344432559:web:809816509e0276f495a15a",
-       measurementId: "G-6GL8EE4KV5"
+      apiKey: "AIzaSyBKhbVOV-TeJdeXTkOqSMggVWMulrRLVzM",
+      authDomain: "classconnect-5abe8.firebaseapp.com",
+      projectId: "classconnect-5abe8",
+      storageBucket: "classconnect-5abe8.firebasestorage.app",
+      messagingSenderId: "539410991181",
+      appId: "1:539410991181:web:5372807c6b7d0a3809f404",
+      measurementId: "G-LYJ3PKMM6N"
     };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-    const voteDoc = db.collection('votes').doc('assemblyVote');
+    const voteDocRef = doc(db, "votes", "assemblyVote");
 
-    // Submit a vote, increment yes or no
-    function submitVote(choice) {
-      voteDoc.update({
-        [choice]: firebase.firestore.FieldValue.increment(1)
-      }).catch(() => {
-        // If doc doesn't exist, create it with 0 counts and retry vote
-        voteDoc.set({ yes: 0, no: 0 }).then(() => submitVote(choice));
-      });
-    }
+    const pollForm = document.getElementById('pollForm');
+    const results = document.getElementById('results');
+    const yesBar = document.getElementById('yesBar');
+    const noBar = document.getElementById('noBar');
+    const yesCount = document.getElementById('yesCount');
+    const noCount = document.getElementById('noCount');
 
-    // Update poll bars live
     function updateBars(yes, no) {
       const total = yes + no;
-      const yesPct = total ? Math.round((yes / total) * 100) : 0;
-      const noPct = 100 - yesPct;
+      const yesPercent = total ? Math.round((yes / total) * 100) : 0;
+      const noPercent = 100 - yesPercent;
 
-      const yesBar = document.getElementById('yesBar');
-      const noBar = document.getElementById('noBar');
+      yesBar.style.width = `${yesPercent}%`;
+      yesBar.textContent = `${yesPercent}%`;
+      noBar.style.width = `${noPercent}%`;
+      noBar.textContent = `${noPercent}%`;
 
-      yesBar.style.width = yesPct + '%';
-      yesBar.textContent = yesPct + '%';
+      yesCount.textContent = `${yes} vote${yes !== 1 ? 's' : ''}`;
+      noCount.textContent = `${no} vote${no !== 1 ? 's' : ''}`;
 
-      noBar.style.width = noPct + '%';
-      noBar.textContent = noPct + '%';
+      results.classList.remove('hidden');
     }
 
-    // Real-time listener for votes document
-    voteDoc.onSnapshot((doc) => {
-      if (doc.exists) {
-        const data = doc.data();
+    onSnapshot(voteDocRef, (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
         updateBars(data.yes || 0, data.no || 0);
+      } else {
+        setDoc(voteDocRef, { yes: 0, no: 0 });
+        updateBars(0, 0);
       }
     });
-  </script>
 
-  <script>
-    // Navbar toggle for mobile menu
+    pollForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const selected = pollForm.vote.value;
+      if (!selected) return alert('Please select an option before submitting.');
+
+      // Disable submit button to avoid duplicate votes
+      const submitBtn = pollForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        await updateDoc(voteDocRef, {
+          [selected]: increment(1)
+        });
+        pollForm.reset();
+      } catch (err) {
+        await setDoc(voteDocRef, { yes: 0, no: 0 });
+        await updateDoc(voteDocRef, {
+          [selected]: increment(1)
+        });
+        pollForm.reset();
+      }
+    });
+
+    // Hamburger menu toggle
     const menuBtn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
 
     menuBtn.addEventListener('click', () => {
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
       menuBtn.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('hidden');
     });
+
   </script>
 
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true
+    });
+  </script>
 </body>
 </html>
